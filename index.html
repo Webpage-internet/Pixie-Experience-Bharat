@@ -1,0 +1,1835 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exhibition Stall requirement form</title>
+    <meta name="description" content="Configure your perfect exhibition stall with our customization options">
+    <style>
+        :root {
+            --primary-color: #2c5282;
+            --secondary-color: #e53e3e;
+            --accent-color: #38a169;
+            --light-color: #f7fafc;
+            --dark-color: #2d3748;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        body {
+            background-color: #edf2f7;
+            color: var(--dark-color);
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 25px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #4299e1 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .company-logo {
+            height: 150px; /* Larger logo size */
+            margin-bottom: 15px;
+            object-fit: contain;
+        }
+        
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        
+        .panel {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            margin-bottom: 20px; /* Added margin for spacing */
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .option-group {
+            margin-bottom: 25px;
+        }
+        
+        .option-group h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .option-group h3::before {
+            content: "•";
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .option-item-wrapper {
+            margin-bottom: 12px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+        
+        .option-item:hover {
+            background-color: #f8fafc;
+        }
+        
+        .option-item label {
+            margin-left: 10px;
+            cursor: pointer;
+            flex-grow: 1;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+        }
+        
+        .quantity-control button {
+            width: 28px;
+            height: 28px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+        }
+        
+        .quantity-control button:hover {
+            background-color: #2b6cb0;
+        }
+        
+        .quantity-control span {
+            margin: 0 12px;
+            min-width: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .table-material-options {
+            margin-top: 10px;
+            margin-left: 45px; /* Aligns under the label */
+            padding: 10px 15px;
+            background-color: #f7fafc;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .table-material-options .material-label {
+            font-weight: 500;
+            color: #4a5568;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .table-material-options .radio-group {
+            margin-top: 0;
+            gap: 20px;
+        }
+
+        .client-info {
+            margin-top: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #4a5568;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-section {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+            flex: 2;
+        }
+        
+        .btn-secondary {
+            background-color: var(--primary-color);
+            color: white;
+            flex: 1;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c53030;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #2b6cb0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .status-message {
+            text-align: center;
+            margin: 15px 0;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 500;
+            display: none;
+        }
+        
+        .loading {
+            color: var(--primary-color);
+            background-color: #ebf8ff;
+        }
+        
+        .success {
+            color: #276749;
+            background-color: #f0fff4;
+        }
+        
+        .error {
+            color: #9b2c2c;
+            background-color: #fff5f5;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .footer-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .footer-link:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        .social-icon {
+            width: 16px;
+            height: 16px;
+        }
+        
+        /* Image upload styles */
+        .image-upload-section {
+            margin-top: 30px;
+        }
+        
+        .image-upload-container {
+            border: 2px dashed #cbd5e0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #f8fafc;
+        }
+        
+        .image-upload-instructions {
+            color: #718096;
+            margin-bottom: 15px;
+        }
+        
+        .upload-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: inline-block;
+            transition: background-color 0.2s;
+        }
+        
+        .upload-btn:hover {
+            background-color: #2b6cb0;
+        }
+        
+        #file-input {
+            display: none;
+        }
+        
+        .preview-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .image-preview {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            display: flex; /* Added for centering non-image icons */
+            align-items: center; /* Added for centering non-image icons */
+            justify-content: center; /* Added for centering non-image icons */
+            font-size: 2em; /* Default icon size */
+            color: #666; /* Default icon color */
+        }
+        
+        .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .remove-image {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: var(--secondary-color);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        /* Radio button styles */
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+        
+        .radio-option input {
+            margin-right: 8px;
+        }
+        
+        /* Select dropdown styles */
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 1em;
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative; /* Added for close button positioning */
+        }
+
+        #welcome-modal .modal-content {
+            text-align: left;
+        }
+        
+        .modal h2 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .modal p {
+            margin-bottom: 20px;
+        }
+        
+        .modal-btn {
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        
+        .modal-btn:hover {
+            background-color: #c53030;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+        
+        .social-logo {
+            height: 24px;
+            width: auto;
+        }
+        
+        /* Dimension inputs */
+        .dimension-inputs-wrapper {
+            display: flex;
+            align-items: flex-start; /* Align items at the top */
+            gap: 30px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .dimension-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex-grow: 1;
+            min-width: 250px;
+        }
+
+        .dimension-inputs {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+        
+        .dimension-input {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .dimension-input label {
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #4a5568;
+        }
+        
+        .dimension-input input {
+            padding: 10px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            width: 100px;
+        }
+
+        .sqm-input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .sqm-input-group label {
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #4a5568;
+        }
+        .sqm-input-group input {
+            padding: 10px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            width: 120px; /* Adjust width as needed */
+        }
+
+        .dimensions-image-container {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            max-height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0; /* Prevents image from shrinking */
+        }
+        .dimensions-image-container img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Close button for modal */
+        .modal-close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .view-example-link {
+            margin-left: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            background-color: #e9eef3;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .view-example-link:hover {
+            background-color: #d8e0e8;
+            color: var(--dark-color);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+        
+        @media (max-width: 1100px) {
+            .dimension-inputs-wrapper {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            header {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .company-logo {
+                height: 120px;
+            }
+            
+            .submit-section {
+                flex-direction: column;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .dimension-inputs {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .sqm-input-group input,
+            .dimension-input input {
+                width: 100%; /* Full width on mobile */
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></head><body>
+    <div class="container">
+        <header>
+            <img src="https://i.postimg.cc/BZkhJBsg/pixie-01.png" alt="Pixie Experience Logo" class="company-logo">
+            <h1>Exhibition Stall Requirement Form</h1>
+            <p>Create your perfect exhibition stall with our advanced customization options</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="panel">
+                <h2 class="section-title">Stall Specifications</h2>
+                
+                <div class="option-group">
+                    <h3>Stall Dimensions</h3>
+                    <div class="dimension-inputs-wrapper">
+                        <div class="dimension-controls">
+                            <div class="form-group">
+                                <label>Unit Preference</label>
+                                <div class="radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" id="unit-feet" name="unit-preference" value="feet" checked>
+                                        <label for="unit-feet">Feet</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="unit-sqm" name="unit-preference" value="sqm">
+                                        <label for="unit-sqm">SQM</label>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="dimension-inputs" id="feet-dimensions">
+                                <div class="dimension-input">
+                                    <label for="stall-width-ft">Width (ft)</label>
+                                    <input type="number" id="stall-width-ft" min="1" value="10" class="form-control">
+                                </div>
+                                <div class="dimension-input">
+                                    <label for="stall-depth-ft">Depth (ft)</label>
+                                    <input type="number" id="stall-depth-ft" min="1" value="10" class="form-control">
+                                </div>
+                            </div>
+    
+                            <div class="dimension-inputs hidden" id="sqm-dimensions">
+                                <div class="sqm-input-group">
+                                    <label for="stall-sqm-input">Area (sq ft)</label>
+                                    <input type="number" id="stall-sqm-input" min="1" value="100" class="form-control">
+                                </div>
+                                <div class="dimension-input">
+                                    <label for="stall-width-sqm">Width (ft)</label>
+                                    <input type="number" id="stall-width-sqm" min="1" value="10" class="form-control">
+                                </div>
+                                <div class="dimension-input">
+                                    <label for="stall-depth-sqm">Depth (ft)</label>
+                                    <input type="number" id="stall-depth-sqm" min="1" value="10" class="form-control">
+                                </div>
+                            </div>
+    
+                            <div class="form-group">
+                                <div class="option-item">
+                                    <input type="checkbox" id="specify-height-checkbox">
+                                    <label for="specify-height-checkbox">Do you want to specify Height?</label>
+                                </div>
+                                <div class="dimension-input hidden" id="height-input-container">
+                                    <label for="stall-height">Height (ft)</label>
+                                    <input type="number" id="stall-height" min="1" value="8" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dimensions-image-container">
+                            <img src="https://i.postimg.cc/5tqV0S1D/Screenshot-2025-06-16-131141.png" alt="Stall Dimensions Guide">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <h3>Stall Type</h3>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="stall-octonorm" name="stall-type" value="octonorm" checked>
+                            <label for="stall-octonorm">Octonorm Stall</label>
+                            <span class="view-example-link" data-stall-type="octonorm">Tap to view example</span>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="stall-customized" name="stall-type" value="customized">
+                            <label for="stall-customized">Customized Stall</label>
+                            <span class="view-example-link" data-stall-type="customized">Tap to view example</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="option-group">
+                    <h3>Facia Type</h3>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="facia-normal" name="facia-type" value="normal" checked>
+                            <label for="facia-normal">Normal Facia</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="facia-designer" name="facia-type" value="designer">
+                            <label for="facia-designer">Designer Facia</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <h3>TV Displays</h3>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-tv-24" class="furniture-option" data-type="tv-24" data-width="50" data-height="30">
+                        <label for="option-tv-24">24" TV</label>
+                        <div class="quantity-control" data-for="option-tv-24">
+                            <button class="quantity-minus">-</button>
+                            <span>1</span>
+                            <button class="quantity-plus">+</button>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-tv-32" class="furniture-option" data-type="tv-32" data-width="60" data-height="40">
+                        <label for="option-tv-32">32" TV</label>
+                        <div class="quantity-control" data-for="option-tv-32">
+                            <button class="quantity-minus">-</button>
+                            <span>1</span>
+                            <button class="quantity-plus">+</button>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-tv-40" class="furniture-option" data-type="tv-40" data-width="70" data-height="45">
+                        <label for="option-tv-40">40" TV</label>
+                        <div class="quantity-control" data-for="option-tv-40">
+                            <button class="quantity-minus">-</button>
+                            <span>1</span>
+                            <button class="quantity-plus">+</button>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-tv-43" class="furniture-option" data-type="tv-43" data-width="75" data-height="48">
+                        <label for="option-tv-43">43" TV</label>
+                        <div class="quantity-control" data-for="option-tv-43">
+                            <button class="quantity-minus">-</button>
+                            <span>1</span>
+                            <button class="quantity-plus">+</button>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-tv-50" class="furniture-option" data-type="tv-50" data-width="85" data-height="55">
+                        <label for="option-tv-50">50" TV</label>
+                        <div class="quantity-control" data-for="option-tv-50">
+                            <button class="quantity-minus">-</button>
+                            <span>1</span>
+                            <button class="quantity-plus">+</button>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-tv-55" class="furniture-option" data-type="tv-55" data-width="90" data-height="60">
+                        <label for="option-tv-55">55" TV</label>
+                        <div class="quantity-control" data-for="option-tv-55">
+                            <button class="quantity-minus">-</button>
+                            <span>1</span>
+                            <button class="quantity-plus">+</button>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-tv-65" class="furniture-option" data-type="tv-65" data-width="100" data-height="65">
+                        <label for="option-tv-65">65" TV</label>
+                        <div class="quantity-control" data-for="option-tv-65">
+                            <button class="quantity-minus">-</button>
+                            <span>1</span>
+                            <button class="quantity-plus">+</button>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-tv-75" class="furniture-option" data-type="tv-75" data-width="110" data-height="70">
+                        <label for="option-tv-75">75" TV</label>
+                        <div class="quantity-control" data-for="option-tv-75">
+                            <button class="quantity-minus">-</button>
+                            <span>1</span>
+                            <button class="quantity-plus">+</button>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-tv-85" class="furniture-option" data-type="tv-85" data-width="120" data-height="75">
+                        <label for="option-tv-85">85" TV</label>
+                        <div class="quantity-control" data-for="option-tv-85">
+                            <button class="quantity-minus">-</button>
+                            <span>1</span>
+                            <button class="quantity-plus">+</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="custom-Led-size">If Led Wall Required Mention The Size Here</label>
+                        <input type="text" id="custom-Led-size" class="form-control" placeholder="Enter custom led size (e.g., 100-inch or 8-feet)">
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <h3>Furniture</h3>
+                    <div class="option-item-wrapper">
+                        <div class="option-item">
+                            <input type="checkbox" id="option-chair" class="furniture-option" data-type="chair" data-width="30" data-height="30">
+                            <label for="option-chair">Chairs</label>
+                            <div class="quantity-control" data-for="option-chair">
+                                <button class="quantity-minus">-</button>
+                                <span>2</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-item-wrapper">
+                        <div class="option-item">
+                            <input type="checkbox" id="option-table" class="furniture-option table-checkbox" data-type="table" data-width="60" data-height="60" data-options-id="round-table-options">
+                            <label for="option-table">Round Tables</label>
+                            <div class="quantity-control" data-for="option-table">
+                                <button class="quantity-minus">-</button>
+                                <span>1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </div>
+                        <div id="round-table-options" class="table-material-options hidden">
+                            <label class="material-label">Material:</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="round-glass" name="round-table-material" value="Glass" checked>
+                                    <label for="round-glass">Glass</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="round-wood" name="round-table-material" value="Wood">
+                                    <label for="round-wood">Wood</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="round-plastic" name="round-table-material" value="Plastic">
+                                    <label for="round-plastic">Plastic</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-item-wrapper">
+                        <div class="option-item">
+                            <input type="checkbox" id="option-rectangle-table" class="furniture-option table-checkbox" data-type="rectangle-table" data-width="120" data-height="60" data-options-id="rectangle-table-options">
+                            <label for="option-rectangle-table">Rectangle Tables</label>
+                            <div class="quantity-control" data-for="option-rectangle-table">
+                                <button class="quantity-minus">-</button>
+                                <span>1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </div>
+                        <div id="rectangle-table-options" class="table-material-options hidden">
+                            <label class="material-label">Material:</label>
+                            <div class="radio-group">
+                                <div class="radio-option">
+                                    <input type="radio" id="rect-glass" name="rect-table-material" value="Glass" checked>
+                                    <label for="rect-glass">Glass</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="rect-wood" name="rect-table-material" value="Wood">
+                                    <label for="rect-wood">Wood</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="rect-plastic" name="rect-table-material" value="Plastic">
+                                    <label for="rect-plastic">Plastic</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-item-wrapper">
+                        <div class="option-item">
+                            <input type="checkbox" id="option-counter" class="furniture-option" data-type="counter" data-width="100" data-height="40">
+                            <label for="option-counter">Reception Counter</label>
+                            <div class="quantity-control" data-for="option-counter">
+                                <button class="quantity-minus">-</button>
+                                <span>1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-item-wrapper">
+                        <div class="option-item">
+                            <input type="checkbox" id="option-sofa-1" class="furniture-option" data-type="sofa-1" data-width="80" data-height="50">
+                            <label for="option-sofa-1">1-Seater Sofa</label>
+                            <div class="quantity-control" data-for="option-sofa-1">
+                                <button class="quantity-minus">-</button>
+                                <span>1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-item-wrapper">
+                        <div class="option-item">
+                            <input type="checkbox" id="option-sofa-2" class="furniture-option" data-type="sofa-2" data-width="120" data-height="60">
+                            <label for="option-sofa-2">2-Seater Sofa</label>
+                            <div class="quantity-control" data-for="option-sofa-2">
+                                <button class="quantity-minus">-</button>
+                                <span>1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-item-wrapper">
+                        <div class="option-item">
+                            <input type="checkbox" id="option-sofa-3" class="furniture-option" data-type="sofa-3" data-width="180" data-height="70">
+                            <label for="option-sofa-3">3-Seater Sofa</label>
+                            <div class="quantity-control" data-for="option-sofa-3">
+                                <button class="quantity-minus">-</button>
+                                <span>1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-item-wrapper">
+                        <div class="option-item">
+                            <input type="checkbox" id="option-bar-table" class="furniture-option" data-type="bar-table" data-width="150" data-height="50">
+                            <label for="option-bar-table">Bar Table</label>
+                            <div class="quantity-control" data-for="option-bar-table">
+                                <button class="quantity-minus">-</button>
+                                <span>1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="option-item-wrapper">
+                        <div class="option-item">
+                            <input type="checkbox" id="option-bar-stool" class="furniture-option" data-type="bar-stool" data-width="30" data-height="30">
+                            <label for="option-bar-stool">Bar Stools</label>
+                            <div class="quantity-control" data-for="option-bar-stool">
+                                <button class="quantity-minus">-</button>
+                                <span>1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="option-item-wrapper">
+                        <div class="option-item">
+                            <input type="checkbox" id="option-t-poy" class="furniture-option" data-type="t-poy" data-width="40" data-height="40">
+                            <label for="option-t-poy">T-Poy</label>
+                            <div class="quantity-control" data-for="option-t-poy">
+                                <button class="quantity-minus">-</button>
+                                <span>1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <h3>Display & Branding</h3>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-shelves" class="furniture-option" data-type="shelves" data-width="80" data-height="120">
+                        <label for="option-shelves">Display Shelves</label>
+                        <div class="quantity-control" data-for="option-shelves">
+                            <button class="quantity-minus">-</button>
+                            <span>1</span>
+                            <button class="quantity-plus">+</button>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-brochure" class="furniture-option" data-type="brochure-stand" data-width="40" data-height="60">
+                        <label for="option-brochure">Brochure Stand</label>
+                        <div class="quantity-control" data-for="option-brochure">
+                            <button class="quantity-minus">-</button>
+                            <span>1</span>
+                            <button class="quantity-plus">+</button>
+                        </div>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-backlite" class="furniture-option" data-type="backlite" data-width="100" data-height="40">
+                        <label for="option-backlite">Backlit Branding</label>
+                        <div class="quantity-control" data-for="option-backlite">
+                            <button class="quantity-minus">-</button>
+                            <span>1</span>
+                            <button class="quantity-plus">+</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <h3>Additional Features</h3>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-lighting" checked>
+                        <label for="option-lighting">Spot Lighting</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-power">
+                        <label for="option-power">Power Outlets</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-wifi">
+                        <label for="option-wifi">WiFi Hotspot</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-storage">
+                        <label for="option-storage">Storage Cabinets</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-sound">
+                        <label for="option-sound">Sound System</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-meeting">
+                        <label for="option-meeting">Meeting Room</label>
+                    </div>
+                    <div class="option-item">
+                        <input type="checkbox" id="option-coffee-machine">
+                        <label for="option-coffee-machine">Coffee Machine</label>
+                    </div>
+                    <div class="form-group">
+                        <label>Do you have 2D creatives?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="creatives-yes" name="2d-creatives" value="yes">
+                                <label for="creatives-yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="creatives-no" name="2d-creatives" value="no" checked>
+                                <label for="creatives-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Any additional requirements?</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="additional-yes" name="additional-requirements" value="yes">
+                                <label for="additional-yes">Yes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="additional-no" name="additional-requirements" value="no" checked>
+                                <label for="additional-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="image-upload-section">
+                    <h3 class="section-title">Upload Your Logo, Reference Images, or 3D Files</h3>
+                    <div class="image-upload-container">
+                        <p class="image-upload-instructions">Upload logo, images, or 3D models (.obj, .fbx, .gltf, .glb)</p>
+                        <label for="file-input" class="upload-btn">Choose Files</label>
+                        <input type="file" id="file-input" accept="image/*, .pdf, .doc, .docx, .psd, .ai, .eps, .svg, .ppt, .pptx, .xls, .xlsx, .zip, .rar, .7z, .json, .csv, .txt, .obj, .fbx, .gltf, .glb" multiple>
+                        <div class="preview-container" id="preview-container"></div>
+                    </div>
+                </div>
+                
+                <div class="client-info">
+                    <h3 class="section-title">Client Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="client-name">Full Name *</label>
+                        <input type="text" id="client-name" class="form-control" placeholder="Your name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="client-email">Email Address *</label>
+                        <input type="email" id="client-email" class="form-control" placeholder="Your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="client-phone">Phone Number</label>
+                        <input type="tel" id="client-phone" class="form-control" placeholder="Your phone number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="client-company">Company Name</label>
+                        <input type="text" id="client-company" class="form-control" placeholder="Your company name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="website-url">Website URL</label>
+                        <input type="url" id="website-url" class="form-control" placeholder="https://yourwebsite.com">
+                    </div>
+                </div>
+                
+                <div class="status-message loading" id="loading-indicator">
+                    <p>Submitting your configuration...</p>
+                </div>
+                
+                <div class="status-message success" id="success-message">
+                    <p>Configuration submitted successfully! We'll contact you soon.</p>
+                </div>
+                
+                <div class="status-message error" id="error-message">
+                    <p id="error-text">There was an error submitting your configuration. Please try again.</p>
+                </div>
+                
+                <div class="submit-section">
+                    <button class="btn btn-secondary" id="reset-btn">Reset Form</button>
+                    <button class="btn btn-primary" id="submit-btn">Submit form</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 Pixie Experience LLP. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="tel:9916540071" id="phone-link" class="footer-link">
+                    <i class="fas fa-phone social-icon"></i> <span id="phone-text">9916540071</span>
+                </a>
+                <a href="mailto:john@pixieexperience.com" class="footer-link">
+                    <i class="fas fa-envelope social-icon"></i> john@pixieexperience.com
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="https://pixieexperience.com/" target="_blank" class="footer-link">
+                    <i class="fas fa-globe social-icon"></i> Website
+                </a>
+                <a href="https://www.facebook.com/PixieExperience/" target="_blank" class="footer-link">
+                    <i class="fab fa-facebook social-icon"></i> Facebook
+                </a>
+                <a href="https://www.instagram.com/pixieexperience/" target="_blank" class="footer-link">
+                    <i class="fab fa-instagram social-icon"></i> Instagram
+                </a>
+                <a href="https://youtube.com/@pixieexperiencellp7326?si=2uuqyeBpY9idz47D" target="_blank" class="footer-link">
+                    <i class="fab fa-youtube social-icon"></i> YouTube
+                </a>
+                <a href="https://x.com/ExperiencePixie" target="_blank" class="footer-link">
+                    <i class="fab fa-twitter social-icon"></i> Twitter
+                </a>
+                <a href="https://in.linkedin.com/company/pixie-experience" target="_blank" class="footer-link">
+                    <i class="fab fa-linkedin social-icon"></i> LinkedIn
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="social-modal">
+        <div class="modal-content">
+            <button class="modal-close-button" onclick="this.parentElement.parentElement.style.display='none'">&times;</button>
+            <h2>Follow Us on Social Media</h2>
+            <p>Stay updated with the latest from Pixie Experience!</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                <a href="https://www.instagram.com/pixieexperience/" target="_blank" class="social-link">
+                    <i class="fab fa-instagram" style="color: #E1306C;"></i> @pixieexperience
+                </a>
+                <a href="https://www.facebook.com/PixieExperience" target="_blank" class="social-link">
+                    <i class="fab fa-facebook" style="color: #1877F2;"></i> /PixieExperience
+                </a>
+                <a href="https://youtube.com/@pixieexperiencellp7326?si=2uuqyeBpY9idz47D" target="_blank" class="social-link">
+                    <i class="fab fa-youtube" style="color: #FF0000;"></i> @pixieexperiencellp7326
+                </a>
+                <a href="https://x.com/ExperiencePixie" target="_blank" class="social-link">
+                    <i class="fab fa-twitter" style="color: #1DA1F2;"></i> @ExperiencePixie
+                </a>
+            </div>
+            
+            <button class="modal-btn" onclick="this.parentElement.parentElement.style.display='none'" style="margin-top: 25px;">Continue</button>
+        </div>
+    </div>
+
+    <div class="modal" id="additional-requirements-modal">
+        <div class="modal-content">
+            <button class="modal-close-button" id="additional-requirements-modal-close-btn">×</button>
+            <h2>Additional Requirements</h2>
+            <div class="form-group">
+                <label for="additional-notes">Please specify your additional requirements:</label>
+                <textarea id="additional-notes" class="form-control" placeholder="Enter details here..."></textarea>
+            </div>
+            <button class="modal-btn" id="additional-requirements-save-btn">Save</button>
+        </div>
+    </div>
+
+    <div class="modal" id="stall-type-info-modal">
+        <div class="modal-content">
+            <button class="modal-close-button" id="stall-type-info-modal-close-btn">×</button>
+            <h2 id="stall-type-info-modal-title"></h2>
+            <img id="stall-type-info-modal-image" src="" alt="Stall Type Example" style="max-width: 100%; height: auto; margin-top: 15px;">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configuration
+            const config = {
+                telegram: {
+                    botToken: '7287533431:AAG-YwrW3F5Tz_9Nti0sR_O8xbRZFeD84Qs',
+                    chatIds: ['7076125469', '7533817518']
+                },
+                stall: {
+                    unitPreference: 'feet', // 'feet' or 'sqm'
+                    width: 10,
+                    depth: 10,
+                    height: null,
+                    sqm: 100,
+                    sqm_width: 10,
+                    sqm_depth: 10,
+                    specifyHeight: false,
+                    faciaType: 'normal',
+                    stallType: 'octonorm',
+                    has2DCreatives: false,
+                    additionalRequirements: false,
+                    additionalNotes: '',
+                    customLedSize: '',
+                    items: {},
+                    features: {
+                        lighting: true, power: false, wifi: false, storage: false,
+                        sound: false, meetingRoom: false, coffeeMachine: false
+                    }
+                },
+                uploadedFiles: []
+            };
+
+            // DOM Elements
+            const elements = {
+                clientName: document.getElementById('client-name'),
+                clientEmail: document.getElementById('client-email'),
+                clientPhone: document.getElementById('client-phone'),
+                clientCompany: document.getElementById('client-company'),
+                websiteUrl: document.getElementById('website-url'),
+                unitFeetRadio: document.getElementById('unit-feet'),
+                unitSqmRadio: document.getElementById('unit-sqm'),
+                feetDimensions: document.getElementById('feet-dimensions'),
+                sqmDimensions: document.getElementById('sqm-dimensions'),
+                stallWidthFt: document.getElementById('stall-width-ft'),
+                stallDepthFt: document.getElementById('stall-depth-ft'),
+                stallSqmInput: document.getElementById('stall-sqm-input'),
+                stallWidthSqm: document.getElementById('stall-width-sqm'),
+                stallDepthSqm: document.getElementById('stall-depth-sqm'),
+                specifyHeightCheckbox: document.getElementById('specify-height-checkbox'),
+                heightInputContainer: document.getElementById('height-input-container'),
+                stallHeight: document.getElementById('stall-height'),
+                submitBtn: document.getElementById('submit-btn'),
+                resetBtn: document.getElementById('reset-btn'),
+                loadingIndicator: document.getElementById('loading-indicator'),
+                successMessage: document.getElementById('success-message'),
+                errorMessage: document.getElementById('error-message'),
+                errorText: document.getElementById('error-text'),
+                fileInput: document.getElementById('file-input'),
+                previewContainer: document.getElementById('preview-container'),
+                faciaNormal: document.getElementById('facia-normal'),
+                faciaDesigner: document.getElementById('facia-designer'),
+                stallOctonorm: document.getElementById('stall-octonorm'),
+                stallCustomized: document.getElementById('stall-customized'),
+                creativesYes: document.getElementById('creatives-yes'),
+                creativesNo: document.getElementById('creatives-no'),
+                additionalYes: document.getElementById('additional-yes'),
+                additionalNo: document.getElementById('additional-no'),
+                additionalRequirementsModal: document.getElementById('additional-requirements-modal'),
+                additionalNotes: document.getElementById('additional-notes'),
+                additionalRequirementsSaveBtn: document.getElementById('additional-requirements-save-btn'),
+                additionalRequirementsModalCloseBtn: document.getElementById('additional-requirements-modal-close-btn'),
+                customLedSize: document.getElementById('custom-Led-size'),
+                socialModal: document.getElementById('social-modal'),
+                optionLighting: document.getElementById('option-lighting'),
+                optionPower: document.getElementById('option-power'),
+                optionWifi: document.getElementById('option-wifi'),
+                optionStorage: document.getElementById('option-storage'),
+                optionSound: document.getElementById('option-sound'),
+                optionMeeting: document.getElementById('option-meeting'),
+                optionCoffeeMachine: document.getElementById('option-coffee-machine'),
+                stallTypeInfoIcons: document.querySelectorAll('.view-example-link'),
+                stallTypeInfoModal: document.getElementById('stall-type-info-modal'),
+                stallTypeInfoModalTitle: document.getElementById('stall-type-info-modal-title'),
+                stallTypeInfoModalImage: document.getElementById('stall-type-info-modal-image'),
+                stallTypeInfoModalCloseBtn: document.getElementById('stall-type-info-modal-close-btn'),
+                phoneLink: document.getElementById('phone-link'),
+                phoneText: document.getElementById('phone-text')
+            };
+
+            function init() {
+                setupEventListeners();
+                updateDimensionVisibility();
+            }
+
+            function setupEventListeners() {
+                elements.phoneLink.addEventListener('click', handlePhoneClick);
+                
+                // Dimension Unit Preference
+                elements.unitFeetRadio.addEventListener('change', handleUnitPreferenceChange);
+                elements.unitSqmRadio.addEventListener('change', handleUnitPreferenceChange);
+                elements.specifyHeightCheckbox.addEventListener('change', handleSpecifyHeightChange);
+
+                // Stall dimensions inputs
+                elements.stallWidthFt.addEventListener('change', updateStallDimensions);
+                elements.stallDepthFt.addEventListener('change', updateStallDimensions);
+                elements.stallSqmInput.addEventListener('change', updateStallDimensions);
+                elements.stallWidthSqm.addEventListener('change', updateStallDimensions);
+                elements.stallDepthSqm.addEventListener('change', updateStallDimensions);
+                elements.stallHeight.addEventListener('change', updateStallDimensions);
+
+                // Furniture options
+                document.querySelectorAll('.furniture-option').forEach(checkbox => {
+                    checkbox.addEventListener('change', handleFurnitureChange);
+                });
+
+                // Conditional table options
+                document.querySelectorAll('.table-checkbox').forEach(checkbox => {
+                    checkbox.addEventListener('change', function() {
+                        const optionsId = this.dataset.optionsId;
+                        const optionsDiv = document.getElementById(optionsId);
+                        optionsDiv.classList.toggle('hidden', !this.checked);
+                    });
+                });
+
+                // Listen to changes on material radio buttons
+                document.querySelectorAll('input[name="round-table-material"]').forEach(radio => {
+                    radio.addEventListener('change', () => updateTableMaterial('table', radio.value));
+                });
+                document.querySelectorAll('input[name="rect-table-material"]').forEach(radio => {
+                    radio.addEventListener('change', () => updateTableMaterial('rectangle-table', radio.value));
+                });
+
+
+                // Quantity controls
+                document.querySelectorAll('.quantity-control').forEach(control => {
+                    const minusBtn = control.querySelector('.quantity-minus');
+                    const plusBtn = control.querySelector('.quantity-plus');
+                    const checkboxId = control.dataset.for;
+                    const checkbox = document.getElementById(checkboxId);
+
+                    minusBtn.addEventListener('click', () => adjustQuantity(checkbox, -1));
+                    plusBtn.addEventListener('click', () => adjustQuantity(checkbox, 1));
+                });
+
+                // Additional features checkboxes
+                elements.optionLighting.addEventListener('change', function() { config.stall.features.lighting = this.checked; });
+                elements.optionPower.addEventListener('change', function() { config.stall.features.power = this.checked; });
+                elements.optionWifi.addEventListener('change', function() { config.stall.features.wifi = this.checked; });
+                elements.optionStorage.addEventListener('change', function() { config.stall.features.storage = this.checked; });
+                elements.optionSound.addEventListener('change', function() { config.stall.features.sound = this.checked; });
+                elements.optionMeeting.addEventListener('change', function() { config.stall.features.meetingRoom = this.checked; });
+                elements.optionCoffeeMachine.addEventListener('change', function() { config.stall.features.coffeeMachine = this.checked; });
+
+                // Facia type
+                elements.faciaNormal.addEventListener('change', function() { config.stall.faciaType = 'normal'; });
+                elements.faciaDesigner.addEventListener('change', function() { config.stall.faciaType = 'designer'; });
+
+                // Stall type
+                elements.stallOctonorm.addEventListener('change', function() { config.stall.stallType = 'octonorm'; });
+                elements.stallCustomized.addEventListener('change', function() { config.stall.stallType = 'customized'; });
+
+                // Stall type info icons
+                elements.stallTypeInfoIcons.forEach(icon => {
+                    icon.addEventListener('click', function(event) {
+                        event.preventDefault(); // Prevent radio button from changing
+                        const stallType = this.dataset.stallType;
+                        if (stallType === 'octonorm') {
+                            elements.stallTypeInfoModalTitle.textContent = 'Octonorm Stall';
+                            elements.stallTypeInfoModalImage.src = 'https://i.postimg.cc/3xN9s7tk/Octonorm-Stalls.jpg';
+                        } else if (stallType === 'customized') {
+                            elements.stallTypeInfoModalTitle.textContent = 'Customized Stall';
+                            elements.stallTypeInfoModalImage.src = 'https://i.postimg.cc/LXpt8M3B/STALL-1-Photo.jpg';
+                        }
+                        elements.stallTypeInfoModal.style.display = 'flex';
+                    });
+                });
+                elements.stallTypeInfoModalCloseBtn.addEventListener('click', () => {
+                    elements.stallTypeInfoModal.style.display = 'none';
+                });
+
+                // 2D Creatives
+                elements.creativesYes.addEventListener('change', function() { config.stall.has2DCreatives = true; });
+                elements.creativesNo.addEventListener('change', function() { config.stall.has2DCreatives = false; });
+
+                // Additional requirements
+                elements.additionalYes.addEventListener('change', function() {
+                    config.stall.additionalRequirements = true;
+                    elements.additionalRequirementsModal.style.display = 'flex';
+                });
+                elements.additionalNo.addEventListener('change', function() {
+                    config.stall.additionalRequirements = false;
+                    config.stall.additionalNotes = '';
+                });
+
+                elements.additionalRequirementsSaveBtn.addEventListener('click', function() {
+                    config.stall.additionalNotes = elements.additionalNotes.value;
+                    elements.additionalRequirementsModal.style.display = 'none';
+                });
+
+                elements.additionalRequirementsModalCloseBtn.addEventListener('click', function() {
+                    elements.additionalRequirementsModal.style.display = 'none';
+                    if (config.stall.additionalNotes === '') {
+                        elements.additionalNo.checked = true;
+                        config.stall.additionalRequirements = false;
+                    }
+                });
+
+                // Custom LED size
+                elements.customLedSize.addEventListener('change', function() { config.stall.customLedSize = this.value; });
+
+                // File upload
+                elements.fileInput.addEventListener('change', handleFileUpload);
+
+                // Form submission
+                elements.submitBtn.addEventListener('click', submitDesign);
+
+                // Reset form
+                elements.resetBtn.addEventListener('click', resetForm);
+            }
+            
+            function handlePhoneClick(event) {
+                event.preventDefault();
+                const phoneNumber = '9916540071';
+                const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+                if (isMobile) {
+                    window.location.href = `tel:${phoneNumber}`;
+                } else {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = phoneNumber;
+                    textArea.style.position = 'fixed';
+                    textArea.style.top = 0;
+                    textArea.style.left = 0;
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        const originalText = elements.phoneText.innerText;
+                        elements.phoneText.innerText = 'Copied!';
+                        setTimeout(() => {
+                            elements.phoneText.innerText = originalText;
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Fallback: Oops, unable to copy', err);
+                    }
+                    document.body.removeChild(textArea);
+                }
+            }
+
+            function updateTableMaterial(itemType, material) {
+                if (config.stall.items[itemType]) {
+                    config.stall.items[itemType].material = material;
+                }
+            }
+
+            function handleUnitPreferenceChange() {
+                config.stall.unitPreference = document.querySelector('input[name="unit-preference"]:checked').value;
+                updateDimensionVisibility();
+                updateStallDimensions(); // Update config values based on new unit selection
+            }
+
+            function handleSpecifyHeightChange() {
+                config.stall.specifyHeight = elements.specifyHeightCheckbox.checked;
+                elements.heightInputContainer.classList.toggle('hidden', !config.stall.specifyHeight);
+                if (!config.stall.specifyHeight) {
+                    config.stall.height = null; // Clear height if not specified
+                }
+            }
+
+            function updateDimensionVisibility() {
+                const isFeet = config.stall.unitPreference === 'feet';
+                elements.feetDimensions.classList.toggle('hidden', !isFeet);
+                elements.sqmDimensions.classList.toggle('hidden', isFeet);
+            }
+
+            function updateStallDimensions() {
+                if (config.stall.unitPreference === 'feet') {
+                    config.stall.width = parseInt(elements.stallWidthFt.value) || 0;
+                    config.stall.depth = parseInt(elements.stallDepthFt.value) || 0;
+                    config.stall.sqm = null;
+                } else {
+                    config.stall.sqm = parseInt(elements.stallSqmInput.value) || 0;
+                    config.stall.width = parseInt(elements.stallWidthSqm.value) || 0;
+                    config.stall.depth = parseInt(elements.stallDepthSqm.value) || 0;
+                }
+                if (config.stall.specifyHeight) {
+                    config.stall.height = parseInt(elements.stallHeight.value) || 0;
+                }
+            }
+
+            function handleFurnitureChange() {
+                const type = this.dataset.type;
+                const quantityControl = document.querySelector(`.quantity-control[data-for="${this.id}"]`);
+                
+                if (this.checked) {
+                    const quantity = parseInt(quantityControl.querySelector('span').textContent);
+                    const itemData = {
+                        quantity: quantity,
+                        width: parseInt(this.dataset.width),
+                        height: parseInt(this.dataset.height)
+                    };
+                    if (this.classList.contains('table-checkbox')) {
+                        const optionsId = this.dataset.optionsId;
+                        itemData.material = document.querySelector(`#${optionsId} input[type="radio"]:checked`).value;
+                    }
+                    config.stall.items[type] = itemData;
+                } else {
+                    delete config.stall.items[type];
+                }
+            }
+
+            function adjustQuantity(checkbox, change) {
+                const type = checkbox.dataset.type;
+                const quantityControl = document.querySelector(`.quantity-control[data-for="${checkbox.id}"]`);
+                let quantitySpan = quantityControl.querySelector('span');
+                let quantity = parseInt(quantitySpan.textContent);
+                
+                quantity = Math.max(1, Math.min(30, quantity + change));
+                
+                quantitySpan.textContent = quantity;
+                
+                if (checkbox.checked && config.stall.items[type]) {
+                    config.stall.items[type].quantity = quantity;
+                }
+            }
+
+            function handleFileUpload(e) {
+                const files = e.target.files;
+                for (let file of files) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        config.uploadedFiles.push({
+                            dataURL: event.target.result,
+                            fileType: file.type,
+                            fileName: file.name
+                        });
+                        addFilePreview(event.target.result, file.type, file.name);
+                    };
+                    reader.readAsDataURL(file);
+                }
+                elements.fileInput.value = '';
+            }
+
+            function addFilePreview(fileData, fileType, fileName) {
+                const previewDiv = document.createElement('div');
+                previewDiv.className = 'image-preview';
+                
+                let content;
+                if (fileType.startsWith('image/')) {
+                    content = document.createElement('img');
+                    content.src = fileData;
+                } else {
+                    content = document.createElement('i');
+                    content.classList.add('fas');
+                    const iconMap = {
+                        'pdf': 'fa-file-pdf', 'word': 'fa-file-word', 'document': 'fa-file-word',
+                        'excel': 'fa-file-excel', 'spreadsheet': 'fa-file-excel',
+                        'powerpoint': 'fa-file-powerpoint', 'presentation': 'fa-file-powerpoint',
+                        'photoshop': 'fa-file-image', 'psd': 'fa-file-image',
+                        'illustrator': 'fa-file-image', 'ai': 'fa-file-image',
+                        'zip': 'fa-file-archive', 'rar': 'fa-file-archive', '7z': 'fa-file-archive',
+                        'text': 'fa-file-alt', 'csv': 'fa-file-alt', 'json': 'fa-file-alt',
+                        'obj': 'fa-cube', 'fbx': 'fa-cube', 'gltf': 'fa-cube', 'glb': 'fa-cube'
+                    };
+                    let iconClass = 'fa-file';
+                    const extension = fileName.split('.').pop().toLowerCase();
+                    if (iconMap[extension]) {
+                        iconClass = iconMap[extension];
+                    } else {
+                        for (const key in iconMap) {
+                            if (fileType.includes(key)) {
+                                iconClass = iconMap[key];
+                                break;
+                            }
+                        }
+                    }
+                    content.classList.add(iconClass);
+                    content.style.fontSize = '3em';
+                    content.style.color = 'var(--primary-color)';
+                }
+                previewDiv.appendChild(content);
+                
+                const removeBtn = document.createElement('div');
+                removeBtn.className = 'remove-image';
+                removeBtn.innerHTML = '&times;';
+                removeBtn.onclick = () => {
+                    previewDiv.remove();
+                    const index = config.uploadedFiles.findIndex(f => f.dataURL === fileData);
+                    if (index > -1) config.uploadedFiles.splice(index, 1);
+                };
+                previewDiv.appendChild(removeBtn);
+                elements.previewContainer.appendChild(previewDiv);
+            }
+
+            async function submitDesign() {
+                if (!elements.clientName.value || !elements.clientEmail.value) {
+                    showError('Please fill in your name and email address');
+                    return;
+                }
+                elements.submitBtn.disabled = true;
+                elements.loadingIndicator.style.display = 'block';
+                elements.successMessage.style.display = 'none';
+                elements.errorMessage.style.display = 'none';
+
+                try {
+                    updateStallDimensions();
+                    const designData = prepareDesignData();
+                    await sendTelegramNotification(designData);
+                    elements.successMessage.style.display = 'block';
+                    elements.socialModal.style.display = 'flex';
+                    setTimeout(() => elements.successMessage.style.display = 'none', 5000);
+                } catch (error) {
+                    console.error('Submission error:', error);
+                    showError(`Submission failed: ${error.message || 'Please try again.'}`);
+                } finally {
+                    elements.submitBtn.disabled = false;
+                    elements.loadingIndicator.style.display = 'none';
+                }
+            }
+
+            function prepareDesignData() {
+                const data = {
+                    stallDimensions: {},
+                    stallConfiguration: {
+                        stallType: config.stall.stallType,
+                        faciaType: config.stall.faciaType,
+                        has2DCreatives: config.stall.has2DCreatives,
+                        additionalRequirements: config.stall.additionalRequirements,
+                        customLedSize: elements.customLedSize.value
+                    },
+                    items: config.stall.items,
+                    features: {
+                        lighting: elements.optionLighting.checked, power: elements.optionPower.checked,
+                        wifi: elements.optionWifi.checked, storage: elements.optionStorage.checked,
+                        sound: elements.optionSound.checked, meetingRoom: elements.optionMeeting.checked,
+                        coffeeMachine: elements.optionCoffeeMachine.checked
+                    },
+                    clientInfo: {
+                        name: elements.clientName.value, email: elements.clientEmail.value,
+                        phone: elements.clientPhone.value || 'Not provided', company: elements.clientCompany.value || 'Not provided',
+                        website: elements.websiteUrl.value || 'Not provided'
+                    },
+                    notes: config.stall.additionalRequirements ? elements.additionalNotes.value : 'None provided',
+                    uploadedFiles: config.uploadedFiles,
+                    submittedAt: new Date().toISOString()
+                };
+
+                if (config.stall.unitPreference === 'feet') {
+                    data.stallDimensions = { unit: 'feet', width: config.stall.width, depth: config.stall.depth, area: config.stall.width * config.stall.depth };
+                } else {
+                    data.stallDimensions = { unit: 'sqm', area: config.stall.sqm, width: config.stall.width, depth: config.stall.depth };
+                }
+                data.stallDimensions.height = config.stall.specifyHeight ? config.stall.height : 'Not specified';
+
+                return data;
+            }
+
+            async function sendTelegramNotification(designData) {
+                const message = formatTelegramMessage(designData);
+                const notificationPromises = config.telegram.chatIds.map(chatId => {
+                    return fetch(`https://api.telegram.org/bot${config.telegram.botToken}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: 'Markdown' })
+                    }).then(response => {
+                        if (!response.ok) {
+                           return response.json().then(err => Promise.reject(err));
+                        }
+                        return response.json();
+                    }).then(() => {
+                        if (designData.uploadedFiles.length > 0) {
+                            const filePromises = designData.uploadedFiles.map(fileObj => {
+                                const formData = new FormData();
+                                formData.append('chat_id', chatId);
+                                const blob = dataURLtoBlob(fileObj.dataURL);
+                                const action = fileObj.fileType.startsWith('image/') ? 'sendPhoto' : 'sendDocument';
+                                const field = fileObj.fileType.startsWith('image/') ? 'photo' : 'document';
+                                formData.append(field, blob, fileObj.fileName);
+                                return fetch(`https://api.telegram.org/bot${config.telegram.botToken}/${action}`, { method: 'POST', body: formData });
+                            });
+                            return Promise.all(filePromises);
+                        }
+                    });
+                });
+
+                const results = await Promise.allSettled(notificationPromises);
+                results.forEach((result, index) => {
+                    if (result.status === 'rejected') {
+                        console.error(`Failed to send notification to chat ID ${config.telegram.chatIds[index]}:`, result.reason);
+                    }
+                });
+
+                if (results.every(result => result.status === 'rejected')) {
+                     throw new Error('All Telegram notifications failed.');
+                }
+            }
+            
+            function dataURLtoBlob(dataURL) {
+                const [header, data] = dataURL.split(',');
+                const mime = header.match(/:(.*?);/)[1];
+                const bstr = atob(data);
+                let n = bstr.length;
+                const u8arr = new Uint8Array(n);
+                while (n--) u8arr[n] = bstr.charCodeAt(n);
+                return new Blob([u8arr], { type: mime });
+            }
+
+            function formatTelegramMessage(data) {
+                const { clientInfo, stallDimensions, stallConfiguration, items, features, notes, submittedAt, uploadedFiles } = data;
+                
+                const itemToString = (name, item) => `• ${name}: ${item.quantity}${item.material ? ` (${item.material})` : ''}`;
+                
+                const sections = {
+                    "📺 TV Displays & LED Walls": [
+                        items['tv-24'] && itemToString('24"', items['tv-24']),
+                        items['tv-32'] && itemToString('32"', items['tv-32']),
+                        items['tv-40'] && itemToString('40"', items['tv-40']),
+                        items['tv-43'] && itemToString('43"', items['tv-43']),
+                        items['tv-50'] && itemToString('50"', items['tv-50']),
+                        items['tv-55'] && itemToString('55"', items['tv-55']),
+                        items['tv-65'] && itemToString('65"', items['tv-65']),
+                        items['tv-75'] && itemToString('75"', items['tv-75']),
+                        items['tv-85'] && itemToString('85"', items['tv-85']),
+                        stallConfiguration.customLedSize && `• LED Wall: ${stallConfiguration.customLedSize}`
+                    ],
+                    "🛋️ Furniture": [
+                        items['chair'] && itemToString('Chairs', items['chair']),
+                        items['table'] && itemToString('Round Tables', items['table']),
+                        items['rectangle-table'] && itemToString('Rectangle Tables', items['rectangle-table']),
+                        items['counter'] && itemToString('Reception Counters', items['counter']),
+                        items['sofa-1'] && itemToString('1-Seater Sofas', items['sofa-1']),
+                        items['sofa-2'] && itemToString('2-Seater Sofas', items['sofa-2']),
+                        items['sofa-3'] && itemToString('3-Seater Sofas', items['sofa-3']),
+                        items['bar-table'] && itemToString('Bar Tables', items['bar-table']),
+                        items['bar-stool'] && itemToString('Bar Stools', items['bar-stool']),
+                        items['t-poy'] && itemToString('T-Poys', items['t-poy'])
+                    ],
+                    "✨ Display & Branding": [
+                        items['shelves'] && itemToString('Display Shelves', items['shelves']),
+                        items['brochure-stand'] && itemToString('Brochure Stands', items['brochure-stand']),
+                        items['backlite'] && itemToString('Backlit Branding', items['backlite'])
+                    ]
+                };
+
+                let message = `🛠️ *New Stall Configuration* 🛠️\n---------------------------------\n\n`;
+                message += `*👤 Client Information*\n` +
+                           `  • *Name:* \`${clientInfo.name}\`\n` +
+                           `  • *Company:* \`${clientInfo.company}\`\n` +
+                           `  • *Email:* \`${clientInfo.email}\`\n` +
+                           `  • *Phone:* \`${clientInfo.phone}\`\n` +
+                           `  • *Website:* ${clientInfo.website}\n\n`;
+
+                message += `*📝 Stall Specifications*\n` +
+                           `  • *Unit:* ${stallDimensions.unit.toUpperCase()}\n`;
+                if (stallDimensions.unit === 'feet') {
+                    message += `  • *Dimensions:* ${stallDimensions.width} (W) × ${stallDimensions.depth} (D)${stallDimensions.height !== 'Not specified' ? ` × ${stallDimensions.height} (H)` : ''} ft\n` +
+                               `  • *Area:* ${stallDimensions.area} sq ft\n`;
+                } else {
+                    message += `  • *Area:* ${stallDimensions.area} sq ft\n` +
+                               (stallDimensions.width && stallDimensions.depth ? `  • *Dimensions (approx):* ${stallDimensions.width} (W) × ${stallDimensions.depth} (D) ft\n` : '') +
+                               (stallDimensions.height !== 'Not specified' ? `  • *Height:* ${stallDimensions.height} ft\n` : '');
+                }
+                message += `  • *Stall Type:* ${stallConfiguration.stallType}\n` +
+                           `  • *Facia Type:* ${stallConfiguration.faciaType}\n` +
+                           `  • *2D Creatives:* ${stallConfiguration.has2DCreatives ? 'Yes' : 'No'}\n\n`;
+                
+                for (const section in sections) {
+                    const filteredItems = sections[section].filter(Boolean);
+                    if (filteredItems.length > 0) {
+                        message += `*${section}*\n${filteredItems.map(item => `  ${item}`).join('\n')}\n\n`;
+                    }
+                }
+                
+                message += `*🔌 Additional Features*\n` +
+                           Object.entries(features).map(([key, val]) => `  ${val ? '✅' : '❌'} ${key.charAt(0).toUpperCase() + key.slice(1)}`).join('\n') + `\n\n`;
+
+                message += `*🗒️ Special Requirements*\n\`\`\`\n${notes || 'None'}\n\`\`\`\n\n`;
+                message += `*🕒 Submitted At:* ${new Date(submittedAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}\n`;
+                message += `*📎 Files Attached:* ${uploadedFiles.length}`;
+
+                return message;
+            }
+            
+            function showError(message) {
+                elements.errorText.textContent = message;
+                elements.errorMessage.style.display = 'block';
+                setTimeout(() => elements.errorMessage.style.display = 'none', 5000);
+            }
+
+            function resetForm() {
+                // Reset forms
+                document.querySelectorAll('form').forEach(form => form.reset());
+                
+                // Clear state
+                config.stall.items = {};
+                config.uploadedFiles = [];
+                elements.previewContainer.innerHTML = '';
+                
+                // Reset checkboxes and dependent elements
+                document.querySelectorAll('.furniture-option').forEach(checkbox => checkbox.checked = false);
+                document.querySelectorAll('.table-material-options').forEach(div => div.classList.add('hidden'));
+
+                // Reset quantities
+                document.querySelectorAll('.quantity-control').forEach(control => {
+                    const span = control.querySelector('span');
+                    const checkboxId = control.dataset.for;
+                    span.textContent = checkboxId === 'option-chair' ? '2' : '1';
+                });
+                
+                // Reset specific elements to defaults
+                elements.optionLighting.checked = true;
+                elements.creativesNo.checked = true;
+                elements.additionalNo.checked = true;
+                
+                // Reset config object defaults that aren't handled by form reset
+                Object.assign(config.stall, {
+                    unitPreference: 'feet', width: 10, depth: 10, height: null,
+                    sqm: 100, sqm_width: 10, sqm_depth: 10, specifyHeight: false,
+                    faciaType: 'normal', stallType: 'octonorm', has2DCreatives: false,
+                    additionalRequirements: false, additionalNotes: '', customLedSize: '',
+                    features: {
+                        lighting: true, power: false, wifi: false, storage: false,
+                        sound: false, meetingRoom: false, coffeeMachine: false
+                    }
+                });
+
+                updateDimensionVisibility();
+                handleSpecifyHeightChange();
+            }
+
+            init();
+        });
+    </script>
+</body></html>
